@@ -21,6 +21,26 @@ class TaskRepository extends ServiceEntityRepository
         parent::__construct($registry, Task::class);
     }
 
+    public function getTaskByUserIdAndNoDone($user){
+        $userId = $user->getId();
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.user = :userId')
+            ->andWhere('t.isDone = 0')
+            ->setParameter('userId', $userId)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getTaskByUserIdAndDone($user){
+        $userId = $user->getId();
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.user = :userId')
+            ->andWhere('t.isDone = 1')
+            ->setParameter('userId', $userId)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Task[] Returns an array of Task objects
 //     */
