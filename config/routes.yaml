@@ -1,3 +1,47 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+   path: /
+   controller: App\Controller\DefaultController::index
+
+task_list:
+    path: /tasks
+    controller: App\Controller\TaskController::list
+
+task_list-done:
+    path: /tasks-done
+    controller: App\Controller\TaskController::listDone
+
+task_create:
+    path: /tasks/create
+    controller: App\Controller\TaskController::create
+
+task_edit:
+    path: /tasks/{id}/edit
+    controller: App\Controller\TaskController::edit
+
+task_toggle:
+    path: /tasks/{id}/toggle
+    controller: App\Controller\TaskController::toggleTask
+
+task_delete:
+    path: /tasks/{id}/delete
+    controller: App\Controller\TaskController::deleteTask
+
+user_list:
+    path: /users
+    controller: App\Controller\UserController::list
+
+user_create:
+    path: /users/create
+    controller: App\Controller\UserController::create
+
+user_edit:
+    path: /users/{id}/edit
+    controller: App\Controller\UserController::edit
+
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+app_logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
